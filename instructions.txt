@@ -1,0 +1,15 @@
+1. Install node and npm on the pi
+  -sudo apt-get install nodejs
+  -sudo apt-get install npm
+2. Install tplink-smarthome-api
+  -sudo npm install -g tplink-smarthome-api
+3. Swap GPIO versions
+  -sudo apt-get remove python3-rpi.gpio
+  -sudo apt-get install python3-rpi-lgpio
+4. Ensure light-toggler.py is executable
+5. Create the toggler service
+  -sudo cp ./light-toggler.service /etc/systemd/system/light-toggler.service
+  -edit as needed to make sure the python file path is correct
+  -sudo systemctl daemon-reload
+  -sudo systemctl enable light-toggler.service
+  -sudo systemctl start light-toggler.service
